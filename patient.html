@@ -132,25 +132,25 @@
         <h2>Personal Information</h2>
         
         <div class="form-group">
-          <label for="name">Full Name*</label>
-          <input type="text" id="name" required>
+          <label for="full_name">Full Name*</label>
+          <input type="text" id="full_name" name="full_name" required>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob">
+            <label for="date_of_birth">Date of Birth</label>
+            <input type="date" id="date_of_birth" name="date_of_birth">
           </div>
           <div class="form-group">
             <label for="age">Age*</label>
-            <input type="number" id="age" required min="1" max="120">
+            <input type="number" id="age" name="age" required min="1" max="120">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="gender">Gender*</label>
-            <select id="gender" required>
+            <select id="gender" name="gender" required>
               <option value="">Select</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -159,8 +159,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="bloodGroup">Blood Group</label>
-            <select id="bloodGroup">
+            <label for="blood_group">Blood Group</label>
+            <select id="blood_group" name="blood_group">
               <option value="">Select</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
@@ -175,8 +175,8 @@
         </div>
 
         <div class="form-group">
-          <label for="maritalStatus">Marital Status</label>
-          <select id="maritalStatus">
+          <label for="marital_status">Marital Status</label>
+          <select id="marital_status" name="marital_status">
             <option value="">Select</option>
             <option value="Single">Single</option>
             <option value="Married">Married</option>
@@ -190,34 +190,34 @@
         <h2>Contact Information</h2>
         
         <div class="form-group">
-          <label for="phone">Phone Number*</label>
-          <input type="tel" id="phone" required>
+          <label for="phone_number">Phone Number*</label>
+          <input type="tel" id="phone_number" name="phone_number" required>
         </div>
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email">
+          <input type="email" id="email" name="email">
         </div>
 
         <div class="form-group">
           <label for="address">Address</label>
-          <textarea id="address" rows="2"></textarea>
+          <textarea id="address" name="address" rows="2"></textarea>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="city">City</label>
-            <input type="text" id="city">
+            <input type="text" id="city" name="city">
           </div>
           <div class="form-group">
             <label for="state">State</label>
-            <input type="text" id="state">
+            <input type="text" id="state" name="state">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="zipCode">Zip Code</label>
-          <input type="text" id="zipCode">
+          <label for="zip_code">Zip Code</label>
+          <input type="text" id="zip_code" name="zip_code">
         </div>
       </div>
 
@@ -226,33 +226,33 @@
         
         <div class="form-row">
           <div class="form-group">
-            <label for="height">Height (cm)</label>
-            <input type="number" id="height" min="50" max="250">
+            <label for="height_cm">Height (cm)</label>
+            <input type="number" id="height_cm" name="height_cm" min="50" max="250">
           </div>
           <div class="form-group">
-            <label for="weight">Weight (kg)</label>
-            <input type="number" id="weight" min="2" max="300">
+            <label for="weight_kg">Weight (kg)</label>
+            <input type="number" id="weight_kg" name="weight_kg" min="2" max="300" step="0.1">
           </div>
         </div>
 
         <div class="form-group">
           <label for="allergies">Allergies</label>
-          <textarea id="allergies" rows="2" placeholder="List any allergies you have"></textarea>
+          <textarea id="allergies" name="allergies" rows="2" placeholder="List any allergies you have"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="medicalConditions">Medical Conditions</label>
-          <textarea id="medicalConditions" rows="3" placeholder="Any existing medical conditions"></textarea>
+          <label for="medical_conditions">Medical Conditions</label>
+          <textarea id="medical_conditions" name="medical_conditions" rows="3" placeholder="Any existing medical conditions"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="medications">Current Medications</label>
-          <textarea id="medications" rows="2" placeholder="List any medications you're currently taking"></textarea>
+          <label for="current_medications">Current Medications</label>
+          <textarea id="current_medications" name="current_medications" rows="2" placeholder="List any medications you're currently taking"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="medicalHistory">Medical History</label>
-          <textarea id="medicalHistory" rows="3" placeholder="Previous illnesses, surgeries, etc."></textarea>
+          <label for="medical_history">Medical History</label>
+          <textarea id="medical_history" name="medical_history" rows="3" placeholder="Previous illnesses, surgeries, etc."></textarea>
         </div>
       </div>
 
@@ -268,32 +268,11 @@
     </div>
   </div>
 
-  <!-- Firebase SDK -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
-    import { 
-      getFirestore, 
-      collection, 
-      addDoc, 
-      serverTimestamp 
-    } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDii8EtTa065JF05YpUqxuFjxLH6wqDEtM",
-      authDomain: "medilong-5cf70.firebaseapp.com",
-      projectId: "medilong-5cf70",
-      storageBucket: "medilong-5cf70.appspot.com",
-      messagingSenderId: "599744922368",
-      appId: "1:599744922368:web:254ec20f97010d8b9669e5",
-      measurementId: "G-2T2M1G1QVY"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
+  <script>
+    // ========== CHANGE THIS TO YOUR SERVER URL ==========
+    const API_BASE_URL = 'http://your-server-url.com'; // Replace with your actual server URL
+    // ===================================================
+    
     // Form submission handler
     document.getElementById("patientForm").addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -311,50 +290,38 @@
       submitBtn.textContent = "Registering...";
       
       try {
-        // Prepare patient data
-        const patientData = {
-          // Personal Information
-          name: document.getElementById("name").value,
-          dob: document.getElementById("dob").value,
-          age: parseInt(document.getElementById("age").value),
-          gender: document.getElementById("gender").value,
-          bloodGroup: document.getElementById("bloodGroup").value,
-          maritalStatus: document.getElementById("maritalStatus").value,
-          
-          // Contact Information
-          phone: document.getElementById("phone").value,
-          email: document.getElementById("email").value,
-          address: document.getElementById("address").value,
-          city: document.getElementById("city").value,
-          state: document.getElementById("state").value,
-          zipCode: document.getElementById("zipCode").value,
-          
-          // Medical Information
-          height: document.getElementById("height").value ? parseInt(document.getElementById("height").value) : null,
-          weight: document.getElementById("weight").value ? parseInt(document.getElementById("weight").value) : null,
-          allergies: document.getElementById("allergies").value,
-          medicalConditions: document.getElementById("medicalConditions").value,
-          medications: document.getElementById("medications").value,
-          medicalHistory: document.getElementById("medicalHistory").value,
-          
-          // System Information
-          createdAt: serverTimestamp(),
-          updatedAt: serverTimestamp(),
-          lastVisit: null,
-          appointments: []
-        };
-
-        // Add to Firestore
-        const docRef = await addDoc(collection(db, "patients"), patientData);
-        console.log("Patient registered with ID: ", docRef.id);
+        // Get form data
+        const formData = new FormData(document.getElementById('patientForm'));
         
-        // Show success
-        document.getElementById("patientForm").reset();
-        successMessage.style.display = "block";
+        // Send data to PHP backend
+        const response = await fetch(`${API_BASE_URL}/save_patient.php`, {
+          method: 'POST',
+          body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          console.log("Patient registered with ID: ", result.patient_id);
+          
+          // Show success message
+          document.getElementById("patientForm").reset();
+          successMessage.textContent = `✅ Registration successful! Patient ID: ${result.patient_id}`;
+          successMessage.style.display = "block";
+          
+          // Scroll to top to show message
+          window.scrollTo(0, 0);
+        } else {
+          throw new Error(result.message || 'Registration failed');
+        }
         
       } catch (error) {
         console.error("Error registering patient: ", error);
+        errorMessage.textContent = `❌ ${error.message}`;
         errorMessage.style.display = "block";
+        
+        // Scroll to top to show message
+        window.scrollTo(0, 0);
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = "Register";
@@ -362,7 +329,7 @@
     });
 
     // Auto-calculate age when date of birth changes
-    document.getElementById("dob").addEventListener("change", function() {
+    document.getElementById("date_of_birth").addEventListener("change", function() {
       const dob = new Date(this.value);
       const today = new Date();
       let age = today.getFullYear() - dob.getFullYear();
@@ -372,7 +339,15 @@
         age--;
       }
       
-      document.getElementById("age").value = age;
+      if (age >= 0 && age <= 120) {
+        document.getElementById("age").value = age;
+      }
+    });
+
+    // Phone number formatting (optional)
+    document.getElementById("phone_number").addEventListener("input", function() {
+      // Remove non-numeric characters except + and -
+      this.value = this.value.replace(/[^0-9+\-\s()]/g, '');
     });
   </script>
 </body>
