@@ -97,22 +97,24 @@
 
     .success-message {
       text-align: center;
-      padding: 10px;
+      padding: 15px;
       background-color: #2ecc71;
       color: white;
       border-radius: 5px;
       margin-top: 20px;
       display: none;
+      font-weight: bold;
     }
 
     .error-message {
       text-align: center;
-      padding: 10px;
+      padding: 15px;
       background-color: #e74c3c;
       color: white;
       border-radius: 5px;
       margin-top: 20px;
       display: none;
+      font-weight: bold;
     }
 
     @media (max-width: 600px) {
@@ -269,9 +271,9 @@
   </div>
 
   <script>
-    // ========== CHANGE THIS TO YOUR SERVER URL ==========
-    const API_BASE_URL = 'http://your-server-url.com'; // Replace with your actual server URL
-    // ===================================================
+    // ========== YOUR RENDER URL ==========
+    const API_BASE_URL = 'https://final-medilong-2.onrender.com';
+    // ====================================
     
     // Form submission handler
     document.getElementById("patientForm").addEventListener("submit", async (e) => {
@@ -293,11 +295,17 @@
         // Get form data
         const formData = new FormData(document.getElementById('patientForm'));
         
+        console.log('Sending to:', API_BASE_URL + '/save_patient.php');
+        
         // Send data to PHP backend
         const response = await fetch(`${API_BASE_URL}/save_patient.php`, {
           method: 'POST',
           body: formData
         });
+        
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.status}`);
+        }
         
         const result = await response.json();
         
@@ -306,7 +314,7 @@
           
           // Show success message
           document.getElementById("patientForm").reset();
-          successMessage.textContent = `✅ Registration successful! Patient ID: ${result.patient_id}`;
+          successMessage.innerHTML = `✅ Registration successful!<br>Patient ID: <strong>${result.patient_id}</strong>`;
           successMessage.style.display = "block";
           
           // Scroll to top to show message
